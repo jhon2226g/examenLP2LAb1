@@ -18,18 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
-
-
-
-
-
 @RestController
 public class HabitacionController {
 
 	IHabService HabitacionServicio;
 	
 	@Autowired
-	public HabitacionController( IHabService iHabitacionServicio) {
+	public HabitacionController( IHabService HabitacionServicio) {
 		this.HabitacionServicio = HabitacionServicio;
 	}
 	
@@ -37,14 +32,14 @@ public class HabitacionController {
 	public List<Habitacion> getAll() {
 		return HabitacionServicio.GetAllHabitacion();
 	}
-	
+		
 	@GetMapping("/hab/{id}")
 	public Habitacion getHab(@PathVariable int id) {
 		return HabitacionServicio.findHabById(id);
 	}
 	
 	@PostMapping("/hab")
-	public Habitacion savehab(Habitacion entity) {
+	public Habitacion savehab(@RequestBody Habitacion entity) {
 		return HabitacionServicio.saveHab(entity);
 	}
 	
@@ -52,9 +47,5 @@ public class HabitacionController {
 	public Habitacion putHab(@PathVariable String id, @RequestBody Habitacion entity) {
 		return entity;
 	}
-	
-	
-	
-	
-	
+		
 }
