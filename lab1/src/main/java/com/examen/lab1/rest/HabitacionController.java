@@ -9,21 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.examen.lab1.model.Habitacion;
 import com.examen.lab1.services.IHabService;
 
-import jakarta.websocket.server.PathParam;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 public class HabitacionController {
-
-	IHabService HabitacionServicio;
 	
 	@Autowired
+	IHabService HabitacionServicio;
 	public HabitacionController( IHabService HabitacionServicio) {
 		this.HabitacionServicio = HabitacionServicio;
 	}
@@ -46,6 +43,11 @@ public class HabitacionController {
 	@PutMapping("/habUp/{id}")
 	public Habitacion putHab(@PathVariable String id, @RequestBody Habitacion entity) {
 		return entity;
+	}
+	
+	@DeleteMapping("/habDel/{id}")
+	public void delHab(@PathVariable int id) {
+		HabitacionServicio.deleteHab(id);
 	}
 		
 }
