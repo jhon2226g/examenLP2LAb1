@@ -1,8 +1,7 @@
 package com.examen.lab1.services;
-
 import java.util.List;
-
 import com.examen.lab1.model.Habitacion;
+
 
 public interface IHabService {
 	List<Habitacion> GetAllHabitacion();

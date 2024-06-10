@@ -41,8 +41,8 @@ public class HabitacionController {
 	}
 	
 	@PutMapping("/habUp/{id}")
-	public Habitacion putHab(@PathVariable String id, @RequestBody Habitacion entity) {
-		return entity;
+	public Habitacion putHab(@PathVariable int id, @RequestBody Habitacion entity) {
+		return HabitacionServicio.updateHab(id, entity);
 	}
 	
 	@DeleteMapping("/habDel/{id}")

@@ -7,5 +7,4 @@ import com.examen.lab1.model.Habitacion;
 
 @Repository
 public interface IHabRepository extends JpaRepository<Habitacion, Integer> {
-
 }
